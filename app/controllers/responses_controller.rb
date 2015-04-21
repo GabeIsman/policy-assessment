@@ -1,20 +1,9 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :edit, :update, :destroy]
 
-  # GET /responses
-  # GET /responses.json
-  def index
-    @responses = Response.all
-  end
-
   # GET /responses/1
   # GET /responses/1.json
   def show
-  end
-
-  # GET /responses/new
-  def new
-    @response = Response.new
   end
 
   # GET /responses/1/edit

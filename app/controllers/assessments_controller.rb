@@ -1,5 +1,7 @@
 class AssessmentsController < ApplicationController
+  before_action :authenticate_user!, except: [:respond]
   before_action :set_assessment, only: [:show, :edit, :update, :destroy, :respond]
+  before_action :access_control, except: [:respond]
 
   # GET /assessments
   # GET /assessments.json
@@ -25,6 +27,7 @@ class AssessmentsController < ApplicationController
   # POST /assessments.json
   def create
     @assessment = Assessment.new(assessment_params)
+    @assessment.user = current_user
 
     respond_to do |format|
       if @assessment.save
@@ -77,5 +80,12 @@ class AssessmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def assessment_params
       params.require(:assessment).permit(:title, :subtitle, questions_attributes: [:id, :_destroy, :text, :more_info, :section_id, :type] )
+    end
+
+    def access_control
+      if @assessment && (@assessment.user_id != current_user.id && !current_user.is_admin?)
+        render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+        return false
+      end
     end
 end
