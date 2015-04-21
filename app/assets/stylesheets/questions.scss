@@ -1,3 +1,18 @@
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.question-more-info,
+.question-text {
+  display: inline-block;
+  width: 300px;
+}
+
+.question-more-info {
+  color: #999;
+}
+
+.nested-fields .field {
+  display: inline-block;
+  margin-right: 30px;
+}

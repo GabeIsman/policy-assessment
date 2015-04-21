@@ -1,5 +1,5 @@
 class AssessmentsController < ApplicationController
-  before_action :set_assessment, only: [:show, :edit, :update, :destroy]
+  before_action :set_assessment, only: [:show, :edit, :update, :destroy, :respond]
 
   # GET /assessments
   # GET /assessments.json
@@ -61,14 +61,20 @@ class AssessmentsController < ApplicationController
     end
   end
 
+  def respond
+    @response = Response.new
+    @response.assessment = @assessment
+    @response.prepare_new_answers
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_assessment
-      @assessment = Assessment.find(params[:id])
+      @assessment = Assessment.includes(:sections, :questions).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assessment_params
-      params.require(:assessment).permit(:title, :subtitle, :user_id)
+      params.require(:assessment).permit(:title, :subtitle, questions_attributes: [:id, :_destroy, :text, :more_info, :section_id, :type] )
     end
 end

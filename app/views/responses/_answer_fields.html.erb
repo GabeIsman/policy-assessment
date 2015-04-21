@@ -1,0 +1,14 @@
+<li class="answer-form">
+  <div class="question">
+    <%= f.object.question.text %>
+  </div>
+  <div class="question-more">
+    <%= f.object.question.more_info %>
+  </div>
+  <div class="field">
+    <%= (1..5).each do |num| %>
+      <%= f.radio_button :value, num %>
+    <% end %>
+  </div>
+  <%= f.hidden_field :question_id %>
+</li>

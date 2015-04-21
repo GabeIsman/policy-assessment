@@ -16,12 +16,15 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :ip %><br>
-    <%= f.text_field :ip %>
-  </div>
-  <div class="field">
     <%= f.label :location %><br>
     <%= f.text_field :location %>
+  </div>
+  <div class="answers">
+    <ul class="answer-list">
+      <%= f.fields_for :answers do |answer| %>
+        <%= render :partial => 'responses/answer_fields', locals: { :f => answer } %>
+      <% end %>
+    </ul>
   </div>
   <div class="actions">
     <%= f.submit %>

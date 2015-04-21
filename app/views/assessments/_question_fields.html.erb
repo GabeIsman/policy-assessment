@@ -1,0 +1,11 @@
+<li class="nested-fields">
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+  </div>
+  <div class="field">
+    <%= f.label :more_info %>
+    <%= f.text_area :more_info %>
+  </div>
+  <%= link_to_remove_association 'delete question', f %>
+</li>

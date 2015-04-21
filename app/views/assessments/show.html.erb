@@ -10,10 +10,14 @@
   <%= @assessment.subtitle %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @assessment.user_id %>
-</p>
+<ul class="question-list">
+  <% @assessment.questions.each do |question| %>
+    <li class="question">
+      <span class="question-text"><%= question.text %></span>
+      <span class="question-more-info"><%= question.more_info %></span>
+    </li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_assessment_path(@assessment) %> |
 <%= link_to 'Back', assessments_path %>
