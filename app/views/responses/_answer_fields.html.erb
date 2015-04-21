@@ -1,13 +1,17 @@
-<li class="answer-form">
-  <div class="question">
+<li class="row answer-form">
+  <div class="col-md-6 nested-field question">
     <%= f.object.question.text %>
+    <span class="caret"></span>
+    <div class="question-more">
+      <%= f.object.question.more_info %>
+    </div>
   </div>
-  <div class="question-more">
-    <%= f.object.question.more_info %>
-  </div>
-  <div class="field">
-    <%= (1..5).each do |num| %>
-      <%= f.radio_button :value, num %>
+  <div class="col-md-5 col-md-offset-1 nested-field answer-value">
+    <% (1..6).each do |num| %>
+      <div class="choice">
+        <%= f.label :value, f.object.question.get_text_for_choice(num), :value => num %>
+        <%= f.radio_button :value, num %>
+      </div>
     <% end %>
   </div>
   <%= f.hidden_field :question_id %>

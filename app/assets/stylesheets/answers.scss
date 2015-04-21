@@ -1,3 +1,49 @@
 // Place all the styles related to the Answers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.question-more {
+  display: none
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question.open .caret {
+  display: none;
+}
+
+.answer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.answer-form {
+  transition: background-color 0.2s linear;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+  &:hover {
+    background-color: #f8f8f8;
+  }
+}
+
+.answer-value {
+  text-align: right;
+}
+
+.answer-value input {
+  margin: 0 10px;
+}
+
+.choice {
+  display: inline-block;
+  text-align: center;
+  font-size: 10px;
+  padding: 0 10px;
+  width: 50px;
+  label {
+    font-weight: normal;
+    display: block
+  }
+}

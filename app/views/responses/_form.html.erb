@@ -26,7 +26,8 @@
       <% end %>
     </ul>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.hidden_field :assessment_id %>
+  <div class="actions row">
+    <%= f.submit :class => 'btn btn-primary' %>
   </div>
 <% end %>

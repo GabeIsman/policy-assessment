@@ -61,6 +61,7 @@ class AssessmentsController < ApplicationController
     end
   end
 
+  # GET /assessments/1/respond
   def respond
     @response = Response.new
     @response.assessment = @assessment
