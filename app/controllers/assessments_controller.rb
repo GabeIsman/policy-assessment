@@ -28,6 +28,11 @@ class AssessmentsController < ApplicationController
   def create
     @assessment = Assessment.new(assessment_params)
     @assessment.user = current_user
+    @assessment.sections.each do |section|
+      section.questions.each do |question|
+        question.assessment = @assessment
+      end
+    end
 
     respond_to do |format|
       if @assessment.save
@@ -79,7 +84,16 @@ class AssessmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assessment_params
-      params.require(:assessment).permit(:title, :subtitle, questions_attributes: [:id, :_destroy, :text, :more_info, :section_id, :type] )
+      params.require(:assessment).permit(
+        :title,
+        :subtitle,
+        sections_attributes: [
+          :id,
+          :title,
+          :_destroy,
+          :subtitle,
+          questions_attributes: [
+            :id, :_destroy, :text, :more_info, :section_id, :type]] )
     end
 
     def access_control

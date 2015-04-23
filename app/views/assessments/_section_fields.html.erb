@@ -1,0 +1,16 @@
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <%= link_to_remove_association 'delete section', f %>
+  <div class="questions">
+    <div class="question-edit-list">
+      <%= link_to_add_association 'add question', f, :questions, {
+        'data-association-insertion-method' => 'append' } %>
+      <%= f.fields_for :questions do |question| %>
+        <%= render 'question_fields', :f => question %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -19,15 +19,16 @@
     <%= f.label :subtitle %><br>
     <%= f.text_field :subtitle %>
   </div>
-  <div class="questions">
-    <div class="question-edit-list">
-      <%= f.fields_for :questions do |question| %>
-        <%= render 'question_fields', :f => question %>
+  <div class="sections">
+    <div class="section-edit-list">
+      <%= f.fields_for :sections do |section| %>
+        <%= render 'section_fields', :f => section %>
       <% end %>
+      <%= link_to_add_association 'add section', f, :sections, {
+        'data-association-insertion-method' => 'append',
+        'data-association-insertion-node' => '.section-edit-list' } %>
     </div>
-    <%= link_to_add_association 'add question', f, :questions, {
-      'data-association-insertion-method' => 'append',
-      'data-association-insertion-node' => '.question-edit-list' } %>
+  </div>
   <div class="actions">
     <%= f.submit :class => 'btn btn-primary' %>
   </div>
