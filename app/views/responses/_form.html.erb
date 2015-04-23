@@ -19,12 +19,19 @@
     <%= f.label :location %><br>
     <%= f.text_field :location %>
   </div>
-  <div class="answers">
-    <ul class="answer-list">
-      <%= f.fields_for :answers do |answer| %>
-        <%= render :partial => 'responses/answer_fields', locals: { :f => answer } %>
-      <% end %>
-    </ul>
+  <div class="sections">
+    <% @response.assessment.sections.each do |section| %>
+      <div class="section">
+        <h4 class="section-title"><%= section.title %></h4>
+        <div class="answers">
+          <ul class="answer-list">
+            <%= f.fields_for :answers, @response.answers_for_section(section) do |answer| %>
+              <%= render :partial => 'responses/answer_fields', locals: { :f => answer } %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
   </div>
   <%= f.hidden_field :assessment_id %>
   <div class="actions row">
