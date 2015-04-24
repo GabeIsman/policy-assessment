@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require cocoon
 //= require bootstrap-sprockets
+//= require bootstrap-select.min
 //= require_tree .

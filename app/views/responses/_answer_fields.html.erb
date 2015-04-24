@@ -8,19 +8,19 @@
   </div>
   <div class="col-md-4 nested-field answer-value">
     <div class="btn-group" data-toggle="buttons">
-      <% ['Yes', 'No', 'I don\'t know'].each_with_index do |val, index| %>
-        <label class="btn btn-default
-        <%= 'active' if f.object.value == index.to_s %>">
-
-          <%= f.radio_button :value, index %>
-          <%= val %>
-        </label>
-      <% end %>
+      <label class="btn btn-default answer-button yes <%= 'active' if f.object.value == '0' %>">
+          <%= f.radio_button :value, 0 %>Yes
+      </label>
+      <label class="btn btn-default answer-button no <%= 'active' if f.object.value == '0' %>">
+          <%= f.radio_button :value, 1 %>No
+      </label>
+      <label class="btn btn-default answer-button unknown <%= 'active' if f.object.value == '0' %>">
+          <%= f.radio_button :value, 0 %>I don't know
+      </label>
     </div>
   </div>
   <div class="nested-field answer-source col-md-4">
-    <%= f.label :source, 'Source (optional)', :class => 'optional' %>
-    <%= f.text_field :source %>
+    <%= f.text_field :source, :class => 'form-control', :placeholder => 'Source (optional)' %>
   </div>
   <%= f.hidden_field :question_id %>
 </li>

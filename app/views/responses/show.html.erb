@@ -1,6 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="hero-image protest">
+  <h1><%= @response.assessment.title %></h1>
+</div>
 
-<div class="jumbotron">
-  <h2>Thank You!</h2>
-  <h4>Your response has been recorded</h4>
+<div class="report-card">
+  <header class="report-card-header">
+
+  </header>
+  <div class="report-card-content">
+    <div class="report-card-grade">
+      <%= @response.get_overall_grade %>
+    </div>
+    <div class="report-card-text">
+
+    </div>
+  </div>
+</div>
+
+<div class="container show-response">
+  <% @response.assessment.sections.each do |section| %>
+    <div class="section">
+      <div class="section-title">
+        <%= section.title %>
+      </div>
+      <div class="answers">
+        <% @response.answers_for_section(section).each do |answer| %>
+          <div class="answer row">
+            <div class="col-md-4 question">
+              <%= answer.question.text %>
+              <span class="caret"></span>
+              <div class="question-more">
+                <%= answer.question.more_info %>
+              </div>
+            </div>
+            <div class="col-md-4 nested-field answer-value">
+              <% if answer.value == '0' %>
+                <span class="yes">Yes</span>
+              <% elsif answer.value == '1' %>
+                <span class="no">No</span>
+              <% else %>
+                <span class="unknown">I don't know</span>
+              <% end %>
+            </div>
+            <% if answer.source != '' %>
+              <div class="col-md-4">
+                Source: <%= answer.source %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -6,3 +6,61 @@
   border: 1px solid #ddd;
   padding: 10px;
 }
+
+.hero-image {
+  width: 100%;
+  padding-bottom: 40%;
+  margin: 0;
+  background-size: 100%;
+  margin-bottom: 50px;
+  background-repeat: no-repeat;
+}
+
+.protest {
+  background-image: url('/assets/images/freddie-gray-protest.jpg');
+}
+
+.hero-image h1 {
+  text-align: center;
+  margin: 0;
+  padding-top: 10%;
+  color: #fff;
+  font-weight: bold;
+}
+
+.question {
+  cursor: pointer;
+}
+
+.active.answer-button {
+  color: #fff;
+}
+
+.active.answer-button.yes {
+  background-color: #5cb85c;
+}
+
+.active.answer-button.no {
+  background-color: #d9534f;
+}
+
+.active.answer-button.unknown {
+  background-color: #f0ad4e;
+}
+
+.answer-source {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 25px 0;
+}
+
+.answer-source input {
+  width: 33%;
+  display: inline-block;
+}

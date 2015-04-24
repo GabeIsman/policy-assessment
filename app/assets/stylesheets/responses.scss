@@ -1,3 +1,39 @@
 // Place all the styles related to the Responses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.location-fields .form-group {
+  display: inline-block;
+  max-width: 30%;
+}
+
+.form-group.email {
+  max-width: 300px
+}
+
+label {
+  color: #999;
+  font-weight: lighter;
+}
+
+.show-response .section-title {
+  text-align: left;
+}
+
+.yes,
+.no,
+.unknow {
+  font-weight: bold;
+}
+
+.yes {
+  color: #5cb85c;
+}
+
+.no {
+  color: #d9534f;
+}
+
+.unknown {
+  color: #f0ad4e;
+}

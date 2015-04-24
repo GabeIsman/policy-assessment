@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require imports
+ *= require global
  *= require_tree .
  *= require_self
  */

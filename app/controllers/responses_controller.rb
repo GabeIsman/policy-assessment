@@ -53,11 +53,17 @@ class ResponsesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_response
-      @response = Response.find(params[:id])
+      @response = Response.includes(assessment: :sections, answers: :question).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
-      params.require(:response).permit(:email, :location, :assessment_id, answers_attributes: [:id, :value, :question_id, :source])
+      params.require(:response).permit(
+        :email,
+        :assessment_id,
+        :city,
+        :state,
+        :zip,
+        answers_attributes: [:id, :value, :question_id, :source])
     end
 end
