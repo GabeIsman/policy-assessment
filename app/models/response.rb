@@ -1,4 +1,4 @@
-class Response < ActiveRecord::Base
+  class Response < ActiveRecord::Base
   belongs_to :assessment
   has_many :answers
   accepts_nested_attributes_for :answers

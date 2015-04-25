@@ -98,7 +98,14 @@ class AssessmentsController < ApplicationController
           :_destroy,
           :subtitle,
           questions_attributes: [
-            :id, :_destroy, :text, :more_info, :section_id, :type, :good_answer]] )
+            :id,
+            :_destroy,
+            :text,
+            :more_info,
+            :section_id,
+            :type,
+            :good_answer,
+            :order]])
     end
 
     def access_control

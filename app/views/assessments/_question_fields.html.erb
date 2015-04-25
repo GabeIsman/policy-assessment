@@ -18,5 +18,9 @@
       </label>
     </div>
   </div>
+  <div class="field">
+    <%= f.label :order %>
+    <%= f.text_field :order, :maxlength => 2, :class => 'order-field' %>
+  </div>
   <%= link_to_remove_association 'delete question', f %>
 </div>
