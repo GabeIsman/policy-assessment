@@ -1,6 +1,6 @@
   class Response < ActiveRecord::Base
   belongs_to :assessment
-  has_many :answers
+  has_many :answers, :dependent => :destroy
   accepts_nested_attributes_for :answers
 
   def prepare_new_answers

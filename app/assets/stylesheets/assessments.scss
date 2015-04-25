@@ -29,7 +29,7 @@
   font-size: 48px;
 }
 
-.question {
+.question.more {
   cursor: pointer;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .answer-source input {
-  width: 33%;
+  width: 50%;
   display: inline-block;
 }
 

@@ -1,7 +1,10 @@
 <div class="row answer-form">
-  <div class="col-md-4 nested-field question">
+  <div class="col-md-4 nested-field question <%= 'more' if f.object.question.has_more? %>">
     <%= f.object.question.text %>
-    <span class="caret"></span>
+
+    <% if f.object.question.has_more? %>
+      <span class="caret"></span>
+    <% end %>
     <div class="question-more">
       <%= f.object.question.more_info %>
     </div>
