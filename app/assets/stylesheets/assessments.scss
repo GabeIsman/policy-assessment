@@ -25,7 +25,8 @@
   margin: 0;
   padding-top: 10%;
   color: #fff;
-  font-weight: bold;
+  font-weight: 300;
+  font-size: 48px;
 }
 
 .question {
@@ -63,4 +64,8 @@
 .answer-source input {
   width: 33%;
   display: inline-block;
+}
+
+.section-edit {
+  margin-bottom: 20px;
 }

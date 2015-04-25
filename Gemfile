@@ -50,6 +50,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'guard-livereload', :require => false
+  gem "rack-livereload"
   gem 'guard'
   gem 'rb-fsevent'
 end

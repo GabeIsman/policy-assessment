@@ -19,15 +19,17 @@ class Response < ActiveRecord::Base
     get_grade_for_answers(self.answers.to_a)
   end
 
+  def get_grade_for_section(section)
+    get_grade_for_answers(answers_for_section(section))
+  end
+
   private
 
     def get_grade_for_answers(answers)
       num_yes = answers.count{|a| a.value == '0'}
       num_no = answers.count{|a| a.value == '1'}
       pct = (1.0 * num_yes / (num_yes + num_no)) * 100
-      if pct == 100
-        'A+'
-      elsif pct > 95
+      if pct > 95
         'A'
       elsif pct > 90
         'A-'

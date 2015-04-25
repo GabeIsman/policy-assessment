@@ -20,20 +20,69 @@ label {
   text-align: left;
 }
 
-.yes,
-.no,
-.unknow {
+.show-response {
+  .yes,
+  .no,
+  .unknow {
+    font-weight: bold;
+  }
+
+  .yes {
+    color: #5cb85c;
+  }
+
+  .no {
+    color: #d9534f;
+  }
+
+  .unknown {
+    color: #f0ad4e;
+  }
+}
+
+.report-card {
+  border: 1px solid #d8d8d8;
+  padding: 25px;
+  box-shadow: 2px 2px 5px rgba(25,25,25, 0.5);
+}
+
+.report-card-header {
+
+}
+
+.report-card-content {
+  margin-top: 30px;
+}
+
+.report-card-grade {
+  color: #d9534f;
+  font-size: 64px;
+  height: 64px;
+  display: inline-block;
+  width: 64px;
+  padding-top: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.report-card-text {
+  vertical-align: top;
+  display: inline-block;
+  width: 60%;
+  padding-left: 20px;
+  border-left: 1px solid #d8d8d8;
+  min-height: 64px;
+  table {
+    width: 100%;
+  }
+}
+
+.report-card-section-title {
+  color: #999;
   font-weight: bold;
 }
 
-.yes {
-  color: #5cb85c;
-}
-
-.no {
+.report-card-section-grade {
+  text-align: center;
   color: #d9534f;
-}
-
-.unknown {
-  color: #f0ad4e;
 }
