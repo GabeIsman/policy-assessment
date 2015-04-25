@@ -26,9 +26,13 @@ class Response < ActiveRecord::Base
   private
 
     def get_grade_for_answers(answers)
-      num_yes = answers.count{|a| a.value == '0'}
-      num_no = answers.count{|a| a.value == '1'}
-      pct = (1.0 * num_yes / (num_yes + num_no)) * 100
+      answers = answers.select{|a| !a.value.nil? }
+      num_good = answers.count{|a| a.value == a.question.good_answer }
+      num_bad = answers.count{|a| a.value != '2' && a.value != a.question.good_answer }
+      if answers.count == 0 || num_good + num_bad == 0
+        return '-'
+      end
+      pct = (1.0 * num_good / (num_good + num_bad)) * 100
       if pct > 95
         'A'
       elsif pct > 90

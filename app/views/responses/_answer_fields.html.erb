@@ -1,4 +1,4 @@
-<li class="row answer-form">
+<div class="row answer-form">
   <div class="col-md-4 nested-field question">
     <%= f.object.question.text %>
     <span class="caret"></span>
@@ -11,11 +11,11 @@
       <label class="btn btn-default answer-button yes <%= 'active' if f.object.value == '0' %>">
           <%= f.radio_button :value, 0 %>Yes
       </label>
-      <label class="btn btn-default answer-button no <%= 'active' if f.object.value == '0' %>">
+      <label class="btn btn-default answer-button no <%= 'active' if f.object.value == '1' %>">
           <%= f.radio_button :value, 1 %>No
       </label>
-      <label class="btn btn-default answer-button unknown <%= 'active' if f.object.value == '0' %>">
-          <%= f.radio_button :value, 0 %>I don't know
+      <label class="btn btn-default answer-button unknown <%= 'active' if f.object.value == '2' %>">
+          <%= f.radio_button :value, 2 %>I don't know
       </label>
     </div>
   </div>
@@ -23,4 +23,4 @@
     <%= f.text_field :source, :class => 'form-control', :placeholder => 'Source (optional)' %>
   </div>
   <%= f.hidden_field :question_id %>
-</li>
+</div>

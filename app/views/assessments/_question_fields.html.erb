@@ -1,11 +1,22 @@
 <div class="nested-fields">
   <div class="field">
     <%= f.label :text %>
-    <%= f.text_area :text %>
+    <%= f.text_area :text, :rows => 5, :cols => 40 %>
   </div>
   <div class="field">
     <%= f.label :more_info %>
     <%= f.text_area :more_info %>
+  </div>
+  <div class="field">
+    <%= f.label :good_answer %>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-default answer-button yes <%= 'active' if f.object.good_answer == '0' %>">
+          <%= f.radio_button :good_answer, 0 %>Yes
+      </label>
+      <label class="btn btn-default answer-button no <%= 'active' if f.object.good_answer == '1' %>">
+          <%= f.radio_button :good_answer, 1 %>No
+      </label>
+    </div>
   </div>
   <%= link_to_remove_association 'delete question', f %>
 </div>
