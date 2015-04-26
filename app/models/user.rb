@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
   has_many :assessments
 
   def is_admin?
-    false
+    1 == self.role
   end
 end

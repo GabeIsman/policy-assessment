@@ -52,6 +52,7 @@ label {
 
 .report-card-content {
   margin-top: 30px;
+  position: relative;
 }
 
 .report-card-grade {
@@ -86,3 +87,12 @@ label {
   text-align: center;
   color: #d9534f;
 }
+
+.edit-button-container {
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+

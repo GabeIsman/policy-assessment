@@ -46,5 +46,8 @@
   <%= f.hidden_field :assessment_id %>
   <div class="actions row">
     <%= f.submit  'Get A Grade', :class => 'btn btn-primary' %>
+    <% if !f.object.new_record? %>
+      <%= link_to 'Cancel', f.object, :class => 'btn btn-default' %>
+    <% end %>
   </div>
 <% end %>

@@ -1,0 +1,5 @@
+<% if cookies[:uuid] == r.uuid %>
+  <div class='edit-button-container'>
+    <%= link_to 'Edit Answers', edit_response_path(r), :class => 'btn btn-default' %>
+  </div>
+<% end %>

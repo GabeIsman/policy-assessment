@@ -1,5 +1,6 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :edit, :update, :destroy]
+  before_action :access_control, except: [:show, :new, :create]
 
   # GET /responses/1
   # GET /responses/1.json
@@ -14,6 +15,7 @@ class ResponsesController < ApplicationController
   # POST /responses.json
   def create
     @response = Response.new(response_params)
+    @response.uuid = cookies[:uuid]
 
     respond_to do |format|
       if @response.save
@@ -65,5 +67,12 @@ class ResponsesController < ApplicationController
         :state,
         :zip,
         answers_attributes: [:id, :value, :question_id, :source])
+    end
+
+    def access_control
+      if @response && (@response.uuid != cookies[:uuid])
+        render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+        return false
+      end
     end
 end
