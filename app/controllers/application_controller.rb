@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
           :image => 'http://policy-assessment.herokuapp.com/assets/images/freddie-gray-protest.jpg',
           :title => 'Policing Policy Assessment',
           :description => 'Policy checklist for your local police department.',
+          :type => 'article',
           :url => request.original_url
         }
       }
