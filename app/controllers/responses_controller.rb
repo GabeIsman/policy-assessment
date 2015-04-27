@@ -5,6 +5,9 @@ class ResponsesController < ApplicationController
   # GET /responses/1
   # GET /responses/1.json
   def show
+    @layout[:og][:title] = @response.assessment.title
+    @layout[:og][:title] += ' - ' + @response.city if @response.city != ''
+    @layout[:og][:description] = @response.assessment.subtitle
   end
 
   # GET /responses/1/edit

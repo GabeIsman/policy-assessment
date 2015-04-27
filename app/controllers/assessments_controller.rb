@@ -79,6 +79,8 @@ class AssessmentsController < ApplicationController
     @response = Response.new
     @response.assessment = @assessment
     @response.prepare_new_answers
+    @layout[:og][:title] = @assessment.title
+    @layout[:og][:description] = @assessment.subtitle
   end
 
   private
