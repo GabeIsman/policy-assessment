@@ -4,9 +4,9 @@
 
 <div class="container show-response">
   <div class="report-card">
-    <header class="report-card-header">
+    <div class="report-card-header">
       <h4><%= @response.city %> Police Policies Report Card</h4>
-    </header>
+    </div>
     <div class="report-card-content">
       <div class="report-card-grade">
         <%= @response.get_overall_grade %>
@@ -25,6 +25,14 @@
           <% end %>
         </table>
       </div>
+    </div>
+  </div>
+
+  <div class="control-bar clearfix">
+    <div class="pull-left vmiddle social-buttons">
+      <%= render :partial => 'social/facebook_share' %>
+    </div>
+    <div class="pull-right vmiddle">
       <%= render :partial => 'edit_button', :locals => { :r => @response } %>
     </div>
   </div>
