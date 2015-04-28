@@ -45,6 +45,8 @@ label {
   padding: 25px;
   box-shadow: 2px 2px 5px rgba(25,25,25, 0.5);
   max-width: 600px;
+  position: relative;
+  box-sizing: content-box;
 }
 
 .report-card-header {
@@ -56,11 +58,15 @@ label {
   position: relative;
 }
 
+.report-card-left-column {
+  display: inline-block;
+  width: 20%;
+}
+
 .report-card-grade {
   color: #d9534f;
   font-size: 64px;
   height: 64px;
-  display: inline-block;
   width: 64px;
   padding-top: 20px;
   margin: auto;
@@ -70,8 +76,7 @@ label {
 .report-card-text {
   vertical-align: top;
   display: inline-block;
-  width: 80%;
-  padding-left: 20px;
+  width: 78%;
   border-left: 1px solid #d8d8d8;
   min-height: 64px;
   table {
@@ -79,9 +84,26 @@ label {
   }
 }
 
+.report-card-section-row td {
+  padding-top: 7px;
+}
+.report-card-section-row {
+  border-bottom: 1px solid #ddd;
+}
+
 .report-card-section-title {
+  padding-left: 20px;
+}
+
+.report-card-section-link, .report-card-section-link:visited {
   color: #999;
   font-weight: bold;
+}
+
+.report-card-section-link:hover {
+  background-color: inherit;
+  text-decoration: none;
+  color: #333;
 }
 
 .report-card-section-grade {
@@ -98,6 +120,15 @@ label {
   vertical-align: middle;
 }
 
+.vbottom {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
 .social-buttons {
   height: 20px;
+}
+
+.edit-link {
+
 }

@@ -55,4 +55,8 @@ module ResponsesHelper
       ['Wyoming', 'WY']
     ]
   end
+
+  def id_for_section(section)
+    "section-#{section.id}"
+  end
 end

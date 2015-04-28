@@ -1,53 +1,60 @@
 <%= form_for(@response) do |f| %>
-  <% if @response.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>
+  <div class="container">
+    <% if @response.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>
 
-      <ul>
-      <% @response.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+        <% @response.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <div class="form-group email">
-    <%= f.label :email, 'Email (this will not be shown to anyone)' %><br>
-    <%= f.text_field :email, :class => 'form-control email', :placeholder => 'enter your email address' %>
+    <div class="form-group email">
+      <%= f.label :email, 'Email (this will not be shown to anyone)' %><br>
+      <%= f.text_field :email, :class => 'form-control email', :placeholder => 'enter your email address' %>
+    </div>
+    <div class="location-fields">
+      <div class="form-group">
+        <%= f.label :city %><br>
+        <%= f.text_field :city, :class => 'form-control city', :placeholder => 'what city is this for?' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :state %><br>
+        <%= f.select :state, us_states, {:include_blank => 'State'}, {:class => 'state selecter'} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :zip, 'Zip Code (Optional)' %><br>
+        <%= f.text_field :zip, :class => 'form-control zip' %>
+      </div>
+    </div>
   </div>
-  <div class="location-fields">
-    <div class="form-group">
-      <%= f.label :city %><br>
-      <%= f.text_field :city, :class => 'form-control city', :placeholder => 'what city is this for?' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :state %><br>
-      <%= f.select :state, us_states, {:include_blank => 'State'}, {:class => 'state selecter'} %>
-    </div>
-    <div class="form-group">
-      <%= f.label :zip, 'Zip Code (Optional)' %><br>
-      <%= f.text_field :zip, :class => 'form-control zip' %>
-    </div>
-  </div>
+
   <div class="sections">
     <% @response.assessment.sections.each do |section| %>
       <div class="section">
-        <h4 class="section-title"><%= section.title %></h4>
-        <div class="answers">
-          <ul class="answer-list">
-            <%= f.fields_for :answers, @response.answers_for_section(section) do |answer| %>
-              <%= render :partial => 'responses/answer_fields', locals: { :f => answer } %>
-            <% end %>
-          </ul>
+        <div class="section-header">
+          <div class="container">
+            <h4 class="section-title"><%= section.title %>&nbsp;<span class="section-icon glyphicon glyphicon-chevron-right"></span></h4>
+          </div>
+        </div>
+        <div class="answers container">
+          <%= f.fields_for :answers, @response.answers_for_section(section) do |answer| %>
+            <%= render :partial => 'responses/answer_fields', locals: { :f => answer } %>
+          <% end %>
         </div>
       </div>
     <% end %>
   </div>
-  <%= f.hidden_field :assessment_id %>
-  <div class="actions row">
-    <%= f.submit  'Get A Grade', :class => 'btn btn-primary' %>
-    <% if !f.object.new_record? %>
-      <%= link_to 'Cancel', f.object, :class => 'btn btn-default' %>
-    <% end %>
+  <div class="container action-bar">
+    <%= f.hidden_field :assessment_id %>
+    <div class="actions row">
+      <%= f.submit  'Get A Grade', :class => 'btn btn-primary' %>
+      <% if !f.object.new_record? %>
+        <%= link_to 'Cancel', f.object, :class => 'btn btn-default' %>
+      <% end %>
+    </div>
   </div>
 <% end %>

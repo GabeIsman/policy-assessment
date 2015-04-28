@@ -16,4 +16,5 @@
 //= require cocoon
 //= require bootstrap-sprockets
 //= require bootstrap-select.min
+//= require pubsub
 //= require_tree .

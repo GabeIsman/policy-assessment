@@ -1,6 +1,6 @@
 <div class="row answer-form">
-  <div class="col-md-4 nested-field question <%= 'more' if f.object.question.has_more? %>">
-    <%= f.object.question.text %>
+  <div class="col-md-5 nested-field question <%= 'more' if f.object.question.has_more? %>">
+    <%= f.object.question.rendered_text.nil? ? f.object.question.text : f.object.question.rendered_text.html_safe %>
 
     <% if f.object.question.has_more? %>
       <span class="caret"></span>
@@ -9,8 +9,8 @@
       <%= f.object.question.more_info %>
     </div>
   </div>
-  <div class="col-md-4 nested-field answer-value">
-    <div class="btn-group" data-toggle="buttons">
+  <div class="col-md-6 col-md-offset-1 nested-field answer-value">
+    <div class="btn-group value-buttons" data-toggle="buttons">
       <label class="btn btn-default answer-button yes <%= 'active' if f.object.value == '0' %>">
           <%= f.radio_button :value, 0 %>Yes
       </label>
@@ -21,9 +21,9 @@
           <%= f.radio_button :value, 2 %>I don't know
       </label>
     </div>
-  </div>
-  <div class="nested-field answer-source col-md-4">
-    <%= f.text_field :source, :class => 'form-control', :placeholder => 'Source (optional)' %>
+    <div class="source-field">
+      <%= f.text_field :source, :class => 'form-control source-input', :placeholder => 'Source (optional)' %>
+    </div>
   </div>
   <%= f.hidden_field :question_id %>
 </div>

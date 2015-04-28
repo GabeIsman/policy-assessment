@@ -103,6 +103,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
+    kramdown (1.7.0)
     listen (2.10.0)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -224,6 +225,7 @@ DEPENDENCIES
   guard-livereload
   jbuilder (~> 2.0)
   jquery-rails
+  kramdown
   pg
   rack-livereload
   rails (= 4.2.1)

@@ -14,11 +14,6 @@
   display: none;
 }
 
-.answer-list {
-  list-style: none;
-  padding: 0;
-}
-
 .answer-form {
   transition: background-color 0.2s linear;
   padding: 20px 0;
@@ -32,18 +27,28 @@
   text-align: right;
 }
 
-.answer-value input {
-  margin: 0 10px;
+.question.more {
+  cursor: pointer;
 }
 
-.choice {
+.active.answer-button {
+  color: #fff;
+}
+
+.active.answer-button.yes {
+  background-color: #5cb85c;
+}
+
+.active.answer-button.no {
+  background-color: #d9534f;
+}
+
+.active.answer-button.unknown {
+  background-color: #f0ad4e;
+}
+
+.source-input {
+  width: 197px; /* Width of the button group. */
   display: inline-block;
-  text-align: center;
-  font-size: 10px;
-  padding: 0 10px;
-  width: 50px;
-  label {
-    font-weight: normal;
-    display: block
-  }
+  margin-top: 10px;
 }

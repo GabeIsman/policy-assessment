@@ -8,15 +8,20 @@
       <h4><%= @response.city %> Police Policies Report Card</h4>
     </div>
     <div class="report-card-content">
-      <div class="report-card-grade">
-        <%= @response.get_overall_grade %>
+      <div class="report-card-left-column">
+        <div class="report-card-grade">
+          <%= @response.get_overall_grade %>
+        </div>
+        <%= render :partial => 'edit_button', :locals => { :r => @response } %>
       </div>
       <div class="report-card-text">
         <table>
           <% @response.assessment.sections.each do |section| %>
-            <tr>
+            <tr class="report-card-section-row">
               <td class="report-card-section-title">
-                <%= section.title %>
+                <a class="report-card-section-link" href="#<%= id_for_section(section) %>">
+                  <%= section.title %>
+                </a>
               </td>
               <td class="report-card-section-grade">
                 <%= @response.get_grade_for_section(section) %>
@@ -31,14 +36,12 @@
   <div class="control-bar clearfix">
     <div class="pull-left vmiddle social-buttons">
       <%= render :partial => 'social/facebook_share' %>
-    </div>
-    <div class="pull-right vmiddle">
-      <%= render :partial => 'edit_button', :locals => { :r => @response } %>
+      <%= render :partial => 'social/twitter_share', :locals => { :text => @response.city + ' policing policy report card'} %>
     </div>
   </div>
 
   <% @response.assessment.sections.each do |section| %>
-    <div class="section">
+    <div class="section" id="<%= id_for_section(section) %>">
       <div class="section-title">
         <%= section.title %>
       </div>

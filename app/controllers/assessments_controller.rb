@@ -81,6 +81,9 @@ class AssessmentsController < ApplicationController
     @response.prepare_new_answers
     @layout[:og][:title] = @assessment.title
     @layout[:og][:description] = @assessment.subtitle
+    @layout[:bootstrap] = {
+      :assessment => @assessment
+    }.to_json
   end
 
   private
