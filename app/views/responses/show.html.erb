@@ -48,16 +48,17 @@
       <div class="answers">
         <% @response.answers_for_section(section).each do |answer| %>
           <div class="answer row">
-            <div class="col-md-4 question <%= 'more' if answer.question.has_more? %>">
+            <div class="col-md-5 question <%= 'more' if answer.question.has_more? %>">
+              <span class="question-number"><%= answer.question.order %>.</span>
               <%= answer.question.get_text %>
-              <% if answer.question.has_more? %>
-                <span class="caret"></span>
-              <% end %>
               <div class="question-more">
                 <%= answer.question.get_more %>
               </div>
+              <% if answer.question.has_more? %>
+                <span class="question-more-arrow glyphicon glyphicon-chevron-right"></span>
+              <% end %>
             </div>
-            <div class="col-md-4 nested-field answer-value">
+            <div class="col-md-6 col-md-offset-1 nested-field answer-value text-left">
               <% if answer.value == '0' %>
                 <span class="yes">Yes</span>
               <% elsif answer.value == '1' %>
@@ -67,12 +68,12 @@
               <% else %>
                 <span class="unknown">No response</span>
               <% end %>
+              <% if answer.source != '' %>
+                <div class="source">
+                  Source: <%= answer.source %>
+                </div>
+              <% end %>
             </div>
-            <% if answer.source != '' %>
-              <div class="col-md-4">
-                Source: <%= answer.source %>
-              </div>
-            <% end %>
           </div>
         <% end %>
       </div>

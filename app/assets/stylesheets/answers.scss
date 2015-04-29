@@ -30,12 +30,22 @@
   padding: 20px 0;
   border-bottom: 1px solid #ddd;
   &:hover {
-    background-color: #f8f8f8;
+    background-color: #f1f1f1;
   }
 }
 
 .answer-value {
   text-align: right;
+}
+
+.answer {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 968px) {
+  .show-response .answer-value {
+    text-align: left;
+  }
 }
 
 .question.more {
