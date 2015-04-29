@@ -55,7 +55,7 @@ class AssessmentsController < ApplicationController
     end
     respond_to do |format|
       if @assessment.update(assessment_params)
-        format.html { redirect_to @assessment, notice: 'Assessment was successfully updated.' }
+        format.html { redirect_to action: 'respond', id: @assessment.id, notice: 'Assessment was successfully updated.' }
         format.json { render :show, status: :ok, location: @assessment }
       else
         format.html { render :edit }

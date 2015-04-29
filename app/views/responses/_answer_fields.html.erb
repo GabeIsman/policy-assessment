@@ -6,7 +6,7 @@
       <span class="caret"></span>
     <% end %>
     <div class="question-more">
-      <%= f.object.question.more_info %>
+      <%= f.object.question.rendered_info.nil? ? f.object.question.more_info : f.object.question.rendered_info.html_safe %>
     </div>
   </div>
   <div class="col-md-6 col-md-offset-1 nested-field answer-value">
