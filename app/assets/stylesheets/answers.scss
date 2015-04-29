@@ -8,10 +8,21 @@
 
 .question {
   margin-bottom: 20px;
+  padding: 0 30px;
+  position: relative;
 }
 
-.question.open .caret {
-  display: none;
+.question-number {
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+
+.question-more-arrow {
+  position: absolute;
+  top: 0;
+  right: 10px;
 }
 
 .answer-form {

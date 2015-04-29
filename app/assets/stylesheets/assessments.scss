@@ -47,10 +47,12 @@
   margin-bottom: 20px;
 }
 
-.section-icon {
+.section-icon,
+.question-more-arrow {
   transition: transform 0.3s linear;
 }
 
+.question.open .question-more-arrow,
 .section.active .section-icon {
   transform: rotate(90deg);
 }
