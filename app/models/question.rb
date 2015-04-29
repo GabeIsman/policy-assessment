@@ -11,6 +11,15 @@ class Question < ActiveRecord::Base
     self.more_info != ''
   end
 
+  def get_text
+    self.rendered_text.nil? ? self.text : self.rendered_text.html_safe
+  end
+
+  def get_more
+    self.rendered_info.nil? ? self.more_info : self.rendered_info.html_safe
+  end
+
+
   def compile_markdown
     self.rendered_text = Kramdown::Document.new(self.text).to_html
     self.rendered_info = Kramdown::Document.new(self.more_info).to_html

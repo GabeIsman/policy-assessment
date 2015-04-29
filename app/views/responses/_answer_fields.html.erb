@@ -1,10 +1,10 @@
 <div class="row answer-form">
   <div class="col-md-5 nested-field question <%= 'more' if f.object.question.has_more? %>">
     <span class="question-number"><%= f.object.question.order %>.</span>
-    <%= f.object.question.rendered_text.nil? ? f.object.question.text : f.object.question.rendered_text.html_safe %>
+    <%= f.object.question.get_text %>
 
     <div class="question-more">
-      <%= f.object.question.rendered_info.nil? ? f.object.question.more_info : f.object.question.rendered_info.html_safe %>
+      <%= f.object.question.get_more %>
     </div>
     <% if f.object.question.has_more? %>
       <span class="question-more-arrow glyphicon glyphicon-chevron-right"></span>
