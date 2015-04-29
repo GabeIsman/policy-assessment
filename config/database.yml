@@ -20,3 +20,4 @@ test:
 production:
   <<: *default
   database: policy
+  pool: 10
