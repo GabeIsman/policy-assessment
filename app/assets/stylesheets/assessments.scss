@@ -16,23 +16,26 @@
   background-repeat: no-repeat;
 }
 
-@media (min-width: 768px) {
-  .hero-image {
-    padding-bottom: 30%;
-  }
-}
-
-.protest {
-  background-image: url('/assets/images/freddie-gray-protest.jpg');
-}
-
 .hero-image h1 {
   text-align: center;
   margin: 0;
   padding-top: 10%;
   color: #fff;
+  font-size: 36px;
   font-weight: 300;
-  font-size: 48px;
+}
+
+@media (min-width: 768px) {
+  .hero-image {
+    padding-bottom: 30%;
+    h1 {
+      font-size: 48px;
+    }
+  }
+}
+
+.protest {
+  background-image: url('/assets/images/freddie-gray-protest.jpg');
 }
 
 .assessment-intro {
