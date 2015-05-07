@@ -89,6 +89,7 @@ class AssessmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_assessment
+      params[:id] = 1 unless params[:id]
       @assessment = Assessment.includes(:sections, :questions).find(params[:id])
     end
 
