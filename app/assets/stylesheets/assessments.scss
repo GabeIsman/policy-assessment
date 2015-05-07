@@ -9,11 +9,17 @@
 
 .hero-image {
   width: 100%;
-  padding-bottom: 40%;
+  padding-bottom: 20%;
   margin: 0;
   background-size: 100%;
   margin-bottom: 50px;
   background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .hero-image {
+    padding-bottom: 30%;
+  }
 }
 
 .protest {
@@ -29,11 +35,16 @@
   font-size: 48px;
 }
 
+.assessment-intro {
+  font-size: 20px;
+  line-height: 25px;
+  margin-bottom: 25px;
+}
 
 .section-title {
   font-size: 20px;
   font-weight: bold;
-  line-height: 60px;
+  padding: 20px 0;
   margin: 0;
 }
 

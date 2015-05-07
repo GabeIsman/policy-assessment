@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>Email</th>
-      <th>Ip</th>
       <th>Location</th>
-      <th colspan="3"></th>
+      <th>Assessment ID</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,10 +16,9 @@
     <% @responses.each do |response| %>
       <tr>
         <td><%= response.email %></td>
-        <td><%= response.ip %></td>
-        <td><%= response.location %></td>
+        <td><%= (response.city || '') + ', ' + (response.state || '') %></td>
+        <td><%= response.assessment_id %></td>
         <td><%= link_to 'Show', response %></td>
-        <td><%= link_to 'Edit', edit_response_path(response) %></td>
         <td><%= link_to 'Destroy', response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

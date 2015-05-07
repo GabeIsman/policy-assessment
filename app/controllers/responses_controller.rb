@@ -1,6 +1,13 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :edit, :update, :destroy]
   before_action :access_control, except: [:show, :new, :create]
+  before_action :require_admin, only: [:index]
+
+  # GET /responses
+  # GET /responses.json
+  def index
+    @responses = Response.all
+  end
 
   # GET /responses/1
   # GET /responses/1.json

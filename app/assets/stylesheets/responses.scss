@@ -132,3 +132,19 @@ label {
 .edit-link {
 
 }
+
+a.more-info {
+  color: #3b5998;
+  &:hover {
+    background-color: transparent;
+    color: #3b5998;
+  }
+}
+
+.open a.more-info {
+  display: none;
+}
+
+.open .question-more {
+  display: block;
+}

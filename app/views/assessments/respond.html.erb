@@ -2,4 +2,8 @@
   <h1><%= @assessment.title %></h1>
 </div>
 
+<div class="container assessment-intro">
+  <%= @assessment.subtitle %>
+</div>
+
 <%= render :partial => 'responses/form' %>

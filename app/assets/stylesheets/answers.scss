@@ -19,12 +19,6 @@
   left: 10px;
 }
 
-.question-more-arrow {
-  position: absolute;
-  top: 0;
-  right: 10px;
-}
-
 .answer-form {
   transition: background-color 0.2s linear;
   padding: 20px 0;
@@ -72,4 +66,14 @@
   width: 197px; /* Width of the button group. */
   display: inline-block;
   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .answer-value {
+    text-align: left;
+  }
+
+  .value-buttons {
+    display: inline-block;
+  }
 }

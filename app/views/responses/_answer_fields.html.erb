@@ -2,13 +2,12 @@
   <div class="col-md-5 nested-field question <%= 'more' if f.object.question.has_more? %>">
     <span class="question-number"><%= f.object.question.order %>.</span>
     <%= f.object.question.get_text %>
-
+    <% if f.object.question.has_more? %>
+      <a class="more-info">(click for more info)</a>
+    <% end %>
     <div class="question-more">
       <%= f.object.question.get_more %>
     </div>
-    <% if f.object.question.has_more? %>
-      <span class="question-more-arrow glyphicon glyphicon-chevron-right"></span>
-    <% end %>
   </div>
   <div class="col-md-6 col-md-offset-1 nested-field answer-value">
     <div class="btn-group value-buttons" data-toggle="buttons">

@@ -5,7 +5,7 @@
 <div class="container show-response">
   <div class="report-card">
     <div class="report-card-header">
-      <h4><%= @response.city %> Police Policies Report Card</h4>
+      <h4><%= @response.city || '' %> Police Policies Report Card</h4>
     </div>
     <div class="report-card-content">
       <div class="report-card-left-column">
@@ -51,12 +51,12 @@
             <div class="col-md-5 question <%= 'more' if answer.question.has_more? %>">
               <span class="question-number"><%= answer.question.order %>.</span>
               <%= answer.question.get_text %>
+              <% if answer.question.has_more? %>
+                <a class="more-info">(click for more info)</a>
+              <% end %>
               <div class="question-more">
                 <%= answer.question.get_more %>
               </div>
-              <% if answer.question.has_more? %>
-                <span class="question-more-arrow glyphicon glyphicon-chevron-right"></span>
-              <% end %>
             </div>
             <div class="col-md-6 col-md-offset-1 nested-field answer-value text-left">
               <% if answer.value == '0' %>
