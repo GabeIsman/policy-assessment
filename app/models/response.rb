@@ -19,6 +19,10 @@
     get_grade_for_answers(self.answers.to_a)
   end
 
+  def get_overall_pct
+    get_pct_for_answers(self.answers.to_a)
+  end
+
   def get_grade_for_section(section)
     get_grade_for_answers(answers_for_section(section))
   end
@@ -47,12 +51,19 @@
         'C+'
       elsif pct > 60
         'C'
-      elsif pct > 55
-        'C-'
       elsif pct > 50
+        'C-'
+      elsif pct > 40
         'D'
       else
         'F'
       end
+    end
+
+    def get_pct_for_answers(answers)
+      answers = answers.select{|a| !a.value.nil? }
+      num_good = answers.count{|a| a.value == a.question.good_answer }
+      num_bad = answers.count{|a| a.value != '2' && a.value != a.question.good_answer }
+      (1.0 * num_good / (num_good + num_bad)) * 100
     end
 end
