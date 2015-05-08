@@ -15,4 +15,14 @@ a.btn-primary, a.btn-primary:visited {
   .no-print {
     display: none;
   }
+
+  @page {
+    margin: 2cm;
+  }
+
+  .answer.row, .section {
+    widows: 3;
+    orphans: 3;
+    page-break-inside: avoid;
+  }
 }
