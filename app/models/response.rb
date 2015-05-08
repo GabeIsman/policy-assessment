@@ -33,23 +33,23 @@
         return '-'
       end
       pct = (1.0 * num_good / (num_good + num_bad)) * 100
-      if pct > 95
+      if pct > 90
         'A'
-      elsif pct > 90
+      elsif pct > 85
         'A-'
-      elsif pct > 87
-        'B+'
-      elsif pct > 83
-        'B'
       elsif pct > 80
-        'B-'
-      elsif pct > 77
-        'C+'
-      elsif pct > 73
-        'C'
+        'B+'
+      elsif pct > 75
+        'B'
       elsif pct > 70
-        'C-'
+        'B-'
       elsif pct > 65
+        'C+'
+      elsif pct > 60
+        'C'
+      elsif pct > 55
+        'C-'
+      elsif pct > 50
         'D'
       else
         'F'
