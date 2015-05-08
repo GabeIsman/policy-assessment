@@ -2,6 +2,8 @@
   <h1><%= @response.assessment.title %></h1>
 </div>
 
-<div class="container">
-  <%= render 'form' %>
+<div class="container assessment-intro">
+  <%= @response.assessment.subtitle %>
 </div>
+
+<%= render 'form' %>

@@ -1,4 +1,4 @@
-  class Response < ActiveRecord::Base
+class Response < ActiveRecord::Base
   belongs_to :assessment
   has_many :answers, :dependent => :destroy
   accepts_nested_attributes_for :answers
@@ -37,23 +37,13 @@
         return '-'
       end
       pct = (1.0 * num_good / (num_good + num_bad)) * 100
-      if pct > 90
+      if pct > 80
         'A'
-      elsif pct > 85
-        'A-'
-      elsif pct > 80
-        'B+'
-      elsif pct > 75
-        'B'
       elsif pct > 70
-        'B-'
-      elsif pct > 65
-        'C+'
+        'B'
       elsif pct > 60
         'C'
       elsif pct > 50
-        'C-'
-      elsif pct > 40
         'D'
       else
         'F'

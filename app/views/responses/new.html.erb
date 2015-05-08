@@ -1,5 +1,9 @@
-<h1>New Response</h1>
+<div class="hero-image protest">
+  <h1><%= @assessment.title %></h1>
+</div>
 
-<%= render 'form' %>
+<div class="container assessment-intro">
+  <%= @assessment.subtitle %>
+</div>
 
-<%= link_to 'Back', responses_path %>
+<%= render :partial => 'responses/form' %>
