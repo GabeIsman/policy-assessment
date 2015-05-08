@@ -11,10 +11,17 @@
   </div>
   <div class="col-md-6 col-md-offset-1 nested-field answer-value">
     <div class="btn-group value-buttons" data-toggle="buttons">
-      <label class="btn btn-default answer-button yes <%= 'active' if f.object.value == '0' %>">
+      <% if f.object.question.good_answer == '0' %>
+        <% yes_class = 'good' %>
+        <% no_class = 'bad' %>
+      <% else %>
+        <% yes_class = 'bad' %>
+        <% no_class = 'good' %>
+      <% end %>
+      <label class="btn btn-default answer-button <%= yes_class %> <%= 'active' if f.object.value == '0' %>">
           <%= f.radio_button :value, 0 %>Yes
       </label>
-      <label class="btn btn-default answer-button no <%= 'active' if f.object.value == '1' %>">
+      <label class="btn btn-default answer-button <%= no_class %> <%= 'active' if f.object.value == '1' %>">
           <%= f.radio_button :value, 1 %>No
       </label>
       <label class="btn btn-default answer-button unknown <%= 'active' if f.object.value == '2' %>">

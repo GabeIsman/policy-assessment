@@ -61,9 +61,9 @@
             </div>
             <div class="col-md-6 col-md-offset-1 nested-field answer-value text-left">
               <% if answer.value == '0' %>
-                <span class="yes">Yes</span>
+                <span class="<%= answer.question.good_answer == '0' ? 'good' : 'bad' %>">Yes</span>
               <% elsif answer.value == '1' %>
-                <span class="no">No</span>
+                <span class="<%= answer.question.good_answer == '1' ? 'good' : 'bad' %>">No</span>
               <% elsif answer.value == '2' %>
                 <span class="unknown">I don't know</span>
               <% else %>

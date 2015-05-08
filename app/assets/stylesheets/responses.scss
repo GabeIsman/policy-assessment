@@ -21,17 +21,17 @@ label {
 }
 
 .show-response {
-  .yes,
-  .no,
-  .unknow {
+  .good,
+  .bad,
+  .unknown {
     font-weight: bold;
   }
 
-  .yes {
+  .good {
     color: #5cb85c;
   }
 
-  .no {
+  .bad {
     color: #d9534f;
   }
 
