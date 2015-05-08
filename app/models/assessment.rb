@@ -8,4 +8,30 @@ class Assessment < ActiveRecord::Base
   def as_json(options={})
     super(:only => [:title, :subtitle], :include => :sections)
   end
+
+  def to_csv
+    questions = sections.map{|s| s.questions }.flatten
+    questions_header = questions.map{|q| q.text}
+    questions_order = Hash[questions.map.with_index{|q, index| [q.id, index]}]
+    qhash = Hash[questions.map{|q| [q.id, q]}]
+    CSV.generate do |csv|
+      csv << ['City', 'State', 'Email', 'Zip'].concat(questions_header)
+      responses.each do |r|
+        answers = r.answers
+          .select{|a| !questions_order[a.question_id].nil?}
+          .sort{|a, b| questions_order[a.question_id] - questions_order[b.question_id]}
+          .map{|a| get_answer_value(a, qhash) }
+        csv << [r.city || '', r.state || '', r.email || '', r.zip || ''].concat(answers)
+      end
+    end
+  end
+
+  private
+
+    def get_answer_value(answer, qhash)
+      return '' if answer.value.nil?
+      question = qhash[answer.question_id]
+      question.good_answer == answer.value ? '1' : '0'
+    end
+
 end

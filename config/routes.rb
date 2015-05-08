@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :assessments
 
   get 'assessments/:id/respond' => 'assessments#respond'
+  get 'assessments/:id/responses' => 'assessments#responses'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

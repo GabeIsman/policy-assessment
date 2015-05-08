@@ -2,6 +2,7 @@ class AssessmentsController < ApplicationController
   before_action :authenticate_user!, except: [:respond]
   before_action :set_assessment, only: [:show, :edit, :update, :destroy, :respond]
   before_action :access_control, except: [:respond]
+  before_action :require_admin, only: [:responses]
 
   # GET /assessments
   # GET /assessments.json
@@ -84,6 +85,14 @@ class AssessmentsController < ApplicationController
     @layout[:bootstrap] = {
       :assessment => @assessment
     }.to_json
+  end
+
+  # GET /assessments/1/responses.csv
+  def responses
+    @assessment = Assessment.includes(responses: :answers, sections: :questions).find(params[:id])
+    respond_to do |format|
+      format.csv { send_data @assessment.to_csv }
+    end
   end
 
   private
