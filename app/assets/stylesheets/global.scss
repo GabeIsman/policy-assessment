@@ -9,3 +9,10 @@ body {
 a.btn-primary, a.btn-primary:visited {
   color: #fff;
 }
+
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}
