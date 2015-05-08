@@ -5,6 +5,7 @@ $(document).ready(function() {
 });
 
 
+// Regex stolen from http://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
 var isMobileOrTablet = function() {
   var check = false;
   (function(a){
