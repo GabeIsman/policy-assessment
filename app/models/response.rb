@@ -37,13 +37,13 @@ class Response < ActiveRecord::Base
         return '-'
       end
       pct = (1.0 * num_good / (num_good + num_bad)) * 100
-      if pct > 80
+      if pct > 70
         'A'
-      elsif pct > 70
-        'B'
       elsif pct > 60
-        'C'
+        'B'
       elsif pct > 50
+        'C'
+      elsif pct > 40
         'D'
       else
         'F'
