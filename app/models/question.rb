@@ -3,7 +3,7 @@ require 'kramdown'
 class Question < ActiveRecord::Base
   belongs_to :assessment
   belongs_to :section
-  has_many :answers
+  has_many :answers, :dependent => :destroy
   before_save :compile_markdown
   default_scope { order(:order) }
 
