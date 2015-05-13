@@ -51,7 +51,7 @@ class Response < ActiveRecord::Base
     end
 
     def get_pct_for_answers(answers)
-      answers = answers.select{|a| !a.value.nil? }
+      answers = answers.select{|a| !a.value.nil? && !a.question.nil? }
       num_good = answers.count{|a| a.value == a.question.good_answer }
       num_bad = answers.count{|a| a.value != '2' && a.value != a.question.good_answer }
       (1.0 * num_good / (num_good + num_bad)) * 100
