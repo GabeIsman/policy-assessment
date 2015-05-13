@@ -1,9 +1,12 @@
+require 'kramdown'
+
 class Assessment < ActiveRecord::Base
   has_many :questions
   has_many :sections
   has_many :responses
   belongs_to :user
   accepts_nested_attributes_for :sections, :allow_destroy => true, :reject_if => :all_blank
+  before_save :compile_markdown
 
   def as_json(options={})
     super(:only => [:title, :subtitle], :include => :sections)
@@ -26,6 +29,10 @@ class Assessment < ActiveRecord::Base
     end
   end
 
+  def get_subtitle
+    self.rendered_subtitle.nil? ? self.subtitle : self.rendered_subtitle.html_safe
+  end
+
   private
 
     def get_answer_value(answer, qhash)
@@ -34,4 +41,7 @@ class Assessment < ActiveRecord::Base
       question.good_answer == answer.value ? '1' : '0'
     end
 
+    def compile_markdown
+      self.rendered_subtitle = Kramdown::Document.new(self.subtitle).to_html
+    end
 end
